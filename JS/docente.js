@@ -110,3 +110,5 @@ function CargarDocente(p_numero_docente){
 function ActualizarDocente(p_numero_docente){
 }
 
+function EliminararDocente(p_numero_docente){
+}
