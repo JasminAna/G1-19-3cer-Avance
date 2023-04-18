@@ -31,6 +31,7 @@ function CargarDocentes(){
                 '<button id = "btn btn-primary" onclick="CargarDocente('+MisItems[i].numero_docente+')">Editar</button> '+
                 '</td> ' +
                 
+
                 '</tr>';
              $('#DatosDocentes').html(Valores);
             }
@@ -75,40 +76,61 @@ function CargarDocente(p_numero_docente){
     var datosdocente = {
         numero_docente:p_numero_docente  
     };
-    var datosdocentejson= JSON.stringify(datosdocente);
+    var datosdocentesjson= JSON.stringify(datosdocente);
 
     $.ajax ({ 
         url:UrlApiGetOne,
         type:'POST',
-        data:datosdocentejson,
+        data:datosdocentesjson,
         datatype:'JSON',
         contentType: 'application/json',
         success: function(response){
             var MisItems = response;
             for(i=0; i< MisItems.length; i++)
             {
-            $('#numerodocente').val(MisItems[i].numero_docente);
-            $('#nombre').val(MisItems[i].nombre);
-            $('#apellidos').val(MisItems[i].apellidos);
-            $('#contratacion').val(MisItems[i].fecha_contratacion);
-            $('#direccion').val(MisItems[i].direccion);
-            $('#salario').val(MisItems[i].salario);
-            $('#profesion').val(MisItems[i].profesion);
+            $('#numerodocente').val(MisItems[0].numero_docente);
+            $('#nombre').val(MisItems[0].nombre);
+            $('#apellidos').val(MisItems[0].apellidos);
+            $('#contratacion').val(MisItems[0].fecha_contratacion);
+            $('#direccion').val(MisItems[0].direccion);
+            $('#salario').val(MisItems[0].salario);
+            $('#profesion').val(MisItems[0].profesion);
 
         var btnactualizar = '<input type="submit" class="btn btn-primary" '+
-             'id="btn_agregar" onclick="AgregarDocente('+MisItems[i].numero_docente+')"  value="Actualizar" >';        
+             'id="btn_agregar" onclick="AgregarDocente('+MisItems[0].numero_docente+')"  value="Actualizar" ></input>';        
             $('#btnagregar').html(btnactualizar) ;
-
-
-            
+  
         }
         }
     });
 }
-
-
 function ActualizarDocente(p_numero_docente){
+var datosdocente = {
+    numero_docente:p_numero_docente,
+    nombre: $('#nombre').val(),
+    apellidos: $('#apellidos').val(),
+    fecha_contratacion: $('#fecha_contratacion').val(),
+    direccion: $('#direccion').val(),
+    salario: $('#salario').val(),
+    profesion: $('#profesion').val()
+};
+var datosdocentejson = JSON.stringify(datosdocente)
+
+$.ajax({
+    url: UrlApiUpdate,
+    type: 'PUT',
+    data:datosdocentejson,
+    datatype: 'JSON',
+    contenttype: 'application/json',
+    success: function(response){
+        console.log(response);
+        alert('Docente actualizado con exito');
+    },
+    error: function(textError, errorThrown){
+        alert('Error al actualizar docente'+ textError + errorThrown);
+
+    }
+});
+
 }
 
-function EliminararDocente(p_numero_docente){
-}
