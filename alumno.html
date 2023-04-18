@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumno</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+     crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script src="JS/alumno.js"></script>
+</head>
+<body>
+    <a href="Home.html">Regresar</a>
+    <div id="Tabla">
+        <div class="container">
+            <div class="consulta mt6">
+                <div class="row">
+<h3>Lista De alumnos</h3>
+                </div>
+                <div class="box-body">
+                    <div class="table table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Número Alumno</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Fecha Nacimiento</th>
+                                <th>Direción</th>
+                                <th>Altura</th>
+                                <th>Carrera</th>
+                            </tr>
+                        </thead>
+                        <tbody id="DatosAlumnos">
+                            <td>
+                                <button id = "btn btn-primary" onclick="CargarAlumno()">Editar</button>
+                                <button id = "btn btn-primary" onclick="EliminarAlumno()">Eliminar</button>
+                               
+                            </td> 
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                   </table>
+                   </div>   
+                    </div>
+                 </div>
+              
+            
+            
+ <div id="Formulario" class="Formulario mt6 ">
+    <div class="row">
+        <div class="col-12">
+            <h3>Agregar Alumno</h3>
+
+        </div>
+    </div>
+    <div class="col-12">
+        <form  id="Miformulario" class="Alumno">
+            <label for="">Número Alumno</label>
+            <input type="text" id="numeroalumno" class="form-control" placeholder="Ingrese El Número De Alumno">
+            <label for="">Nombre</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Ingrese El Nombre">
+            <label for="">Apellidos</label>
+            <input type="text" id="apellido" class="form-control" placeholder="Ingrese Los Apellidos">
+            <label for="">Fecha Nacimiento</label>
+            <input type="text" id="fechanacimiento" class="form-control" placeholder="Ingrese La Fecha De nacimiento">
+            <label for="">Dirección</label>
+            <input type="text" id="direccion" class="form-control" placeholder=" Ingrese La Dirección">
+            <label for="">Altura</label>
+            <input type="text" id="altura" class="form-control" placeholder="Ingrese la altura">
+            <label for="">Carrera</label> 
+            <input type="text" id="carrera" class="form-control" placeholder="Ingrese La carrera">
+            <hr>
+            <div id="btnagregar">
+
+                <input type="submit" value="Agregar Alumno"
+                    class="btn btn-success" id="btn_agregar" onclick="AgregarAlumno()" >
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+    
+</body>
+</html>
